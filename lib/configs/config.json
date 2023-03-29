@@ -1,0 +1,14 @@
+{
+  "bottomTab": [
+    {
+      "title": "Home",
+      "icon": "",
+      "activeIcon": ""
+    },
+    {
+      "title": "Categories",
+      "icon": "",
+      "activeIcon": ""
+    }
+  ]
+}
