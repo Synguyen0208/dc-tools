@@ -1,4 +1,5 @@
 class RouteList {
-  static String categories = "categories";
-  static String home = "home";
+  static String dashboard = "dashboard";
+  static const String categories = "categories";
+  static const String home = "home";
 }

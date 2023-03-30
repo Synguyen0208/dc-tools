@@ -33,17 +33,20 @@ class BottomTabConfig {
   String title = "home";
   String? icon;
   String? activeIcon;
+   String? pageName;
 
   BottomTabConfig({
     this.title = "home",
     this.icon,
     this.activeIcon,
+    required this.pageName,
   });
 
   BottomTabConfig.fromJson(dynamic json) {
     title = json["title"];
     icon = json["icon"];
     activeIcon = json["activeIcon"];
+    pageName = json["pageName"];
   }
 
   Map<String, dynamic> toJson() {
@@ -51,6 +54,7 @@ class BottomTabConfig {
     map["title"] = title;
     map["icon"] = icon;
     map["activeIcon"] = activeIcon;
+    map["pageName"] = pageName;
     return map;
   }
 }

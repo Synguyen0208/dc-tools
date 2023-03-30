@@ -1,14 +1,16 @@
 {
   "bottomTab": [
     {
+      "pageName": "home",
       "title": "Home",
-      "icon": "",
-      "activeIcon": ""
+      "icon": "assets/icons/home_outline.png",
+      "activeIcon": "assets/icons/home.png"
     },
     {
+      "pageName": "categories",
       "title": "Categories",
-      "icon": "",
-      "activeIcon": ""
+      "icon": "assets/icons/category_outline.png",
+      "activeIcon": "assets/icons/category.png"
     }
   ]
 }

@@ -8,7 +8,7 @@ class AppModel extends ChangeNotifier {
   AppConfig? appConfig;
 
   Future<AppConfig?> loadAppConfig({Map<String, dynamic>? config}) async {
-    var path = 'lib/config/config.json';
+    var path = 'lib/configs/config.json';
     try {
       final appJson = await rootBundle.loadString(path);
       appConfig = AppConfig.fromJson(convert.jsonDecode(appJson));
