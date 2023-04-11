@@ -12,7 +12,6 @@ class AppIcons {
   static String logout = "$assetIcon/logout.svg";
   static String camera = "$assetIcon/camera.svg";
   static String error = "$assetIcon/error.svg";
-  static String location = "$assetIcon/location_point.svg";
   static String phone = "$assetIcon/phone.svg";
   static String mail = "$assetIcon/mail.png";
   static String google = "$assetIcon/google.png";
@@ -25,4 +24,6 @@ class AppIcons {
   static String eye = "$assetIcon/eye.png";
   static String plus = "$assetIcon/plus.svg";
   static String arrowRight = "$assetIcon/arrow_right.svg";
+  static const String empty_bag = 'assets/icons/emptybag.png';
+  static String location = '$assetIcon/location.svg';
 }

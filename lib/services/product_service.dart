@@ -5,10 +5,11 @@ import 'package:store/services/dio_service.dart';
 
 class ProductService extends ProductRepository {
   @override
-  Future<Paginate<Product>> getProducts({required int page}) async {
+  Future<Paginate<Product>> getProducts(
+      {String? categoryId = '', required int page, String? sortBy = ''}) async {
     try {
-      dynamic res = await dio
-          .get("/search_items?shopid=192145885&limit=10&offset=$page");
+      dynamic res = await dio.get(
+          "/search_items?shopid=192145885&shop_categoryids=$categoryId&limit=10&offset=$page&sort_by=$sortBy&order=desc");
 
       int lastPage = res.data["total_count"] ~/ 10;
 
@@ -23,7 +24,8 @@ class ProductService extends ProductRepository {
       }
       return Paginate(data: [], currentPage: page, lastPage: lastPage);
     } catch (e) {
-      return Paginate(data: [], currentPage: page, lastPage: 0);
+      print(e);
     }
+    return Paginate(data: [], currentPage: page, lastPage: 0);
   }
 }

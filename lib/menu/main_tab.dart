@@ -7,13 +7,13 @@ import 'package:store/utils/constants/colors.dart';
 
 class MainTab extends StatefulWidget {
   const MainTab({super.key});
-
   @override
   State<MainTab> createState() => _MainTabState();
 }
 
 class _MainTabState extends State<MainTab> {
   int _selectedIndex = 0;
+  bool offstage = false;
   List<BottomTabConfig> get tabData =>
       Provider.of<AppModel>(context, listen: false).appConfig!.bottomTab;
   final navigators = <int, GlobalKey<NavigatorState>>{};
@@ -64,41 +64,27 @@ class _MainTabState extends State<MainTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          ...List.generate(
-            _tabView.length,
-            (index) {
-              final active = _selectedIndex == index;
-              return Offstage(
-                offstage: !active,
-                child: TickerMode(
-                  enabled: active,
-                  child: _tabView[index],
+      body: _tabView[_selectedIndex],
+      bottomNavigationBar: Offstage(
+        offstage: offstage,
+        child: BottomNavigationBar(
+          onTap: (value) => setState(() => _selectedIndex = value),
+          currentIndex: _selectedIndex,
+          items: tabData
+              .map(
+                (tab) => BottomNavigationBarItem(
+                  icon: Image.asset(tab.icon!, width: 24, height: 24),
+                  activeIcon: Image.asset(
+                    tab.activeIcon!,
+                    width: 24,
+                    height: 24,
+                    color: AppColors.primary,
+                  ),
+                  label: tab.title,
                 ),
-              );
-            },
-          ).toList(),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) => setState(() => _selectedIndex = value),
-        currentIndex: _selectedIndex,
-        items: tabData
-            .map(
-              (tab) => BottomNavigationBarItem(
-                icon: Image.asset(tab.icon!, width: 24, height: 24),
-                activeIcon: Image.asset(
-                  tab.activeIcon!,
-                  width: 24,
-                  height: 24,
-                  color: AppColors.primary,
-                ),
-                label: tab.title,
-              ),
-            )
-            .toList(),
+              )
+              .toList(),
+        ),
       ),
     );
   }

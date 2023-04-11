@@ -2,15 +2,52 @@
   "bottomTab": [
     {
       "pageName": "home",
-      "title": "Home",
+      "title": "Trang chủ",
       "icon": "assets/icons/home_outline.png",
       "activeIcon": "assets/icons/home.png"
     },
     {
       "pageName": "categories",
-      "title": "Categories",
+      "title": "Danh mục",
       "icon": "assets/icons/category_outline.png",
       "activeIcon": "assets/icons/category.png"
+    }
+  ],
+  "sortBar": {
+    "sortBars": [
+      {
+        "title": "Mới nhất",
+        "value": "ctime"
+      },
+      {
+        "title": "Bán chạy",
+        "value": "sales"
+      },
+      {
+        "title": "Phổ biến",
+        "value": "pop"
+      }
+    ]
+  },
+  "slides": [
+    "https://down-vn.img.susercontent.com/file/vn-11134210-7qukw-lesxol2sdro7b7_tn",
+    "https://down-vn.img.susercontent.com/file/vn-11134210-7qukw-lewnyur368p6b9_tn",
+    "https://down-vn.img.susercontent.com/file/vn-11134210-7qukw-lewnt19vpvuyec_tn",
+    "https://down-vn.img.susercontent.com/file/vn-11134210-7qukw-lewna5dcobka68_tn",
+    "https://down-vn.img.susercontent.com/file/vn-11134210-7qukw-lewnk0dx5idz78_tn"
+  ],
+  "homeProductBanner":[
+    {
+      "keySearch":"ctime",
+      "title":"Sản phẩm mới"
+    },
+    {
+      "keySearch":"sales",
+      "title":"Sản phẩm bán chạy"
+    },
+    {
+      "keySearch":"pop",
+      "title":"Sản phẩm phổ biến"
     }
   ]
 }

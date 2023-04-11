@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:store/models/entities/product.dart';
 import 'package:store/models/product_model.dart';
+import 'package:store/utils/helper/helper.dart';
+import 'package:store/widgets/product/widgets/footer_card.dart';
+import 'package:store/widgets/product/widgets/pricing.dart';
+import 'package:store/widgets/product/widgets/shop_location.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -19,25 +23,30 @@ class ProductCard extends StatelessWidget {
       onTap: () => productModel.onTabProduct(product),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 1),
             ),
           ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(
-              product.image,
+            SizedBox(
               height: 150,
               width: double.infinity,
-              fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: Image.network(
+                  product.image,
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
@@ -46,25 +55,28 @@ class ProductCard extends StatelessWidget {
                 children: [
                   Text(
                     product.name ?? "",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
+                    style: getTheme(context).bodyMedium,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 4),
-                  Text(
-                    'Product Description',
-                    style: TextStyle(fontSize: 16),
+                  const SizedBox(height: 12),
+                  ProductPricing(
+                    priceBeforeDiscount: product.priceBeforeDiscount,
+                    price: product.price,
                   ),
-                  SizedBox(height: 12),
-                  Text(
-                    '\$9.99',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Colors.blue,
-                    ),
+                  const SizedBox(
+                    height: 5,
                   ),
+                  ProductFooter(
+                    historicalSold: product.historicalSold,
+                    ratingStar: product.itemRating?.ratingStar,
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  StoreLocation(
+                    location: product.shopLocation,
+                  )
                 ],
               ),
             ),

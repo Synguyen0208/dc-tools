@@ -43,6 +43,11 @@ TextTheme textTheme() {
   return TextTheme(
     bodyLarge: TextStyle(color: AppColors.textColor),
     bodyMedium: TextStyle(color: AppColors.textColor),
+    displaySmall: const TextStyle(
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+      height: 1.2,
+    ),
     displayMedium: const TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w500,
